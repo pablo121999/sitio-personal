@@ -28,43 +28,65 @@
 </nav>
 
 
-<div class="container col-md-10" style="margin-top: 40px;">
+<div class="container-fluid col-md-10" style="margin-top: 40px;">
 
-    <div class="card" style="border-radius: 20px; background-color: #f2f2f2;">
-        <div class="card-body">
-            <h5 class="card-title"><strong>¡Hola! Soy Pablo Andrés Aroca García</strong></h5>
-            <h6 class="card-subtitle mb-2 text-muted">Ingeniero de Sistemas</h6>
-            <p class="card-text">
-                Soy Ingeniero de Sistemas especializado en desarrollo web. Me apasiona la programación y disfruto
-                crear soluciones eficientes y funcionales. Cuento con experiencia en tecnologías como <strong><i
-                        class="fa-brands fa-php fa-2x"></i>
-                    (<i class="fab fa-laravel"></i>), <i class="fa-brands fa-js fa-2x"></i>, <i
-                        class="fab fa-html5 fa-2x"></i>, <i class="fab fa-css3 fa-2x"></i> y <i
-                        class="fa-solid fa-database fa-2x"></i></strong>.
-                Siempre estoy en constante aprendizaje para mantenerme actualizado y aportar valor en cada proyecto.
 
-            <div class="mt-3">
-                <a href="mailto:pabloaroca78@gmail.com" class="me-3 text-danger text-decoration-none"
-                    title="Enviar correo a Pablo Andrés" aria-label="Correo">
-                    <i class="fab fa-google fa-lg"></i>
-                </a>
-                <a href="https://www.linkedin.com/in/pabloaroca/" class="me-3 text-primary text-decoration-none"
-                    title="Perfil de LinkedIn" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
-                    <i class="fab fa-linkedin-in fa-lg"></i>
-                </a>
-                <a href="https://github.com/pablo121999" class="me-3 text-dark text-decoration-none"
-                    title="Perfil de GitHub" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
-                    <i class="fab fa-github fa-lg"></i>
-                </a>
-                <a href="https://wa.me/573227893926" class="text-success text-decoration-none"
-                    title="Chatear por WhatsApp" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
-                    <i class="fab fa-whatsapp fa-lg"></i>
-                </a>
+    <div class="row">
+
+        <div class="col-md-9">
+            <div class="card" style="border-radius: 20px; background-color: #f2f2f2;">
+                <div class="card-body">
+                    <h5 class="card-title"><strong>¡Hola! Soy Pablo Andrés Aroca García</strong></h5>
+                    <h6 class="card-subtitle mb-2 text-muted">Ingeniero de Sistemas</h6>
+                    <p class="card-text">
+                        Soy Ingeniero de Sistemas especializado en desarrollo web. Me apasiona la programación y
+                        disfruto crear soluciones eficientes y funcionales. Cuento con experiencia en tecnologías como
+                        PHP, JavaScript, MySQL, CSS, HTML
+                        Siempre estoy en constante aprendizaje para mantenerme actualizado y aportar valor en cada
+                        proyecto.
+                    <div class="mt-3">
+                        <a href="mailto:pabloaroca78@gmail.com" class="me-3 text-danger text-decoration-none"
+                            title="Enviar correo a Pablo Andrés" aria-label="Correo">
+                            <i class="fab fa-google fa-lg"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/in/pabloaroca/" class="me-3 text-primary text-decoration-none"
+                            title="Perfil de LinkedIn" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                            <i class="fab fa-linkedin-in fa-lg"></i>
+                        </a>
+                        <a href="https://github.com/pablo121999" class="me-3 text-dark text-decoration-none"
+                            title="Perfil de GitHub" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+                            <i class="fab fa-github fa-lg"></i>
+                        </a>
+                        <a href="https://wa.me/573227893926" class="text-success text-decoration-none"
+                            title="Chatear por WhatsApp" target="_blank" rel="noopener noreferrer"
+                            aria-label="WhatsApp">
+                            <i class="fab fa-whatsapp fa-lg"></i>
+                        </a>
+                    </div>
+
+                    </p>
+                </div>
             </div>
-
-            </p>
         </div>
+
+
+        <div class="col-md-3">
+            <div class="card" style="border-radius: 20px; background-color: #f2f2f2;">
+                <div class="card-body">
+                    <h5 class="card-title  text-center"><strong>Skills</strong></h5>
+                    <ul>
+                        <li>PHP <i class="fa-brands fa-php "></i> (<i class="fab fa-laravel"></i>)</li>
+                        <li>JavaScript <i class="fa-brands fa-js "></i></li>
+                        <li>CSS <i class="fab fa-css3 "></i></li>
+                        <li>HTML <i class="fab fa-html5 "></i></li>
+                        <li>MySQL <i class="fa-solid fa-database "></i></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
     </div>
+
 
     <div style="margin-top: 50px;">
         <h4 class="text-center" style="margin-bottom: 30px;"><strong>Mi línea de tiempo</strong></h4>
@@ -77,9 +99,15 @@
         @include('estudios.main')
     </div>
 
+
     <div style="margin-top: 50px;">
         <h4 class="text-center" style="margin-bottom: 30px;"><strong>Experiencia</strong></h4>
         @include('experiencia.main')
+    </div>
+
+     <div style="margin-top: 50px;">
+        <h4 class="text-center" style="margin-bottom: 30px;"><strong>Juegos</strong></h4>
+        @include('juegos.main')
     </div>
 
 

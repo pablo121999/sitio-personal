@@ -1,0 +1,232 @@
+.container {
+    text-align: center;
+    margin: 20px auto;
+}
+
+.controls3 {
+    position: absolute;
+    top: 410px;
+    left: 765px;
+}
+
+.elegir {
+    position: relative;
+    margin-top: 350px;
+    left: 0;
+}
+
+.Borrador {
+    position: absolute;
+     width: 100%;
+}
+
+.buttonBorrador {
+    position: absolute;
+    left: 115px;
+    top: -30px;
+    width: 100%;
+}
+
+
+
+.size-picker {
+    position: absolute;
+}
+
+
+
+
+
+@media (max-width: 1024px) {
+    .controls {
+        left: 15%;
+        width: 50%;
+    }
+
+    .Borrador,
+    .buttonBorrador {
+        left: 15%;
+        width: 50%;
+    }
+
+}
+
+@media (max-width: 768px) {
+    .controls {
+        left: 8%;
+        width: 70%;
+    }
+
+    .Borrador {
+        left: 3%;
+        width: 70%;
+    }
+
+    .buttonBorrador {
+        left: 34%;
+        width: 90%;
+    }
+
+}
+
+@media (max-width: 480px) {
+
+    .controls,
+    .buttonBorrador {
+        left: 5%;
+        width: 9%;
+    }
+
+}
+
+
+.tool-picker {
+    position: absolute;
+    top: -90px;
+    left: 665px;
+}
+
+.color-picker {
+    position: absolute;
+    top: 127px;
+    left: 165px;
+    background: white;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    gap: 5px;
+    
+    display: none; /* Por defecto oculto */
+    grid-auto-flow: column;
+    grid-template-rows: repeat(3, auto);
+}
+
+.color-picker.active {
+    display: grid; /* Cuando tenga la clase .active, se muestra como grid */
+}
+
+
+
+.color-picker button {
+    width: 30px;
+    height: 30px;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.brush-icon {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    background-color: #1E3A5F;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 30px;
+    margin-left: 100px;
+    margin-top: 160px;
+}
+
+
+.regla-icon {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    background-color: #1E3A5F;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 30px;
+    margin-left: 100px;
+    margin-top: 220px;
+}
+
+
+
+
+.borrador-icon {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    background-color: #1E3A5F;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 30px;
+    margin-left: 665px;
+    margin-top: 220px;
+}
+
+
+.reglaBorrador-icon {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    background-color: #1E3A5F;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 30px;
+    margin-left: 665px;
+    margin-top: 280px;
+}
+
+#brush-size {
+    display: none;
+    position: absolute;
+    top: 235px;
+    left: 160px;
+    width: 100px;
+}
+
+#eraser-size {
+    display: none;
+    position: absolute;
+    top: 210px;
+    left: 840px;
+    width: 100px;
+}
+
+.impresora-icon {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    background-color: #1E3A5F;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+
+    font-size: 30px; /* un poco menor ayuda a centrar mejor */
+    line-height: 1;
+    padding-bottom: 7px; /* este truco empuja visualmente el emoji hacia el centro */
+}
+
+
+
+
+#svg-container {
+    position: absolute;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}

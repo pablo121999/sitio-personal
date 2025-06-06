@@ -34,4 +34,9 @@ Route::middleware('auth')->group(function () {
 
 });
 
+
+Route::get('/PersonalizaAvion', function () {
+    return view('juegos.avionManera');
+})->name('PersonalizaAvion');
+
 require __DIR__ . '/auth.php';
