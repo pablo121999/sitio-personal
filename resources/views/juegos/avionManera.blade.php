@@ -92,10 +92,10 @@
 
 
             <div class="form-group row">
-                <div class="col-sm-2">
+                <div class="col-sm-1">
                     <label for="nombreCompleto" class="col-form-label"><b>Nombre:</b></label>
                 </div>
-                <div class="col-sm-5" style="margin-bottom: 20px;">
+                <div class="col-sm-3" style="margin-bottom: 20px;">
                     <input type="text" class="form-control" name="nombreCompleto" id="nombreCompleto"
                         placeholder="Ingrese su nombre">
                 </div>
