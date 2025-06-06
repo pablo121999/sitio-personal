@@ -1,139 +1,174 @@
 @include('layouts.header')
 
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <div class="container-fluid col-md-10">
-        <a class="navbar-brand fw-bold text-primary" href="{{ url('/') }}">¡Hola! Bienvenidos</a>
+<link rel="stylesheet" href="{{ asset('css/welcome.css') }}">
 
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll"
-            aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarScroll">
-            <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
-            </ul>
-            @if (Route::has('login'))
-                @auth
-                    <a href="{{ url('/dashboard') }}" class="btn btn-primary ms-2">Dashboard</a>
-                @else
-                    <a href="{{ route('login') }}" class="btn btn-primary ms-2">Inicia sesión</a>
+<body>
+    <div class="profile-card shadow-lg bg-white p-4">
+        <!-- NAVBAR dentro de la card -->
+        <nav class="navbar navbar-expand-lg  mb-4">
 
-                    @if (Route::has('register'))
-                        <!--     <a href="{{ route('register') }}" class="btn btn-success ms-2">Crear cuenta</a> -->
-                    @endif
-                @endauth
-            @endif
-        </div>
-    </div>
-</nav>
+            <div class="container-fluid">
+                <!-- Logo y nombre -->
+                <a class="navbar-brand d-flex align-items-center" href="#">
+                    <div class="bg-primary text-white rounded-circle d-flex align-items-center justify-content-center"
+                        style="width: 40px; height: 40px">
+                        <strong>P</strong>
+                    </div>
+                    <span class="ms-2 fw-bold text-dark">Pablo Andres</span>
+                </a>
 
-<div class="container-fluid col-md-10" style="margin-top: 40px;">
-    <ol class="breadcrumb">
-        <li class="breadcrumb-item">
-            <a href="{{ url('/') }}">Inicio</a>
-        </li>
-        <li class="breadcrumb-item active" aria-current="page">
-            <a href="{{ route('PersonalizaAvion') }}">Personaliza tu avión</a>
-        </li>
-        @yield('breadcrumb')
-    </ol>
-</div>
+                <!-- Botón toggle para pantallas pequeñas -->
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar"
+                    aria-controls="mainNavbar" aria-expanded="false" aria-label="Toggle navigation">
+                    <i class="fa fa-list text-primary fs-2"></i>
+                </button>
 
+                <!-- Contenido colapsable -->
+                <div class="collapse navbar-collapse justify-content-end" id="mainNavbar">
+                    <ul class="navbar-nav mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link text-secondary fw-semibold" href="#">About Me</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-secondary fw-semibold" href="#">Resume</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-secondary fw-semibold" href="#">Portfolio</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-secondary fw-semibold" href="#">Contact</a>
+                        </li>
+                        <li class="nav-item">
+                            @if (Route::has('login'))
+                                @auth
+                                    <a href="{{ url('/dashboard') }}" class="btn btn-primary ms-2">Dashboard</a>
+                                @else
+                                    <a href="{{ route('login') }}" class="btn btn-primary ms-2">Inicia sesión</a>
 
-<h4 class="text-center" style="margin-top: 30px; margin-bottom: 50px;">
-    <strong>Personaliza tu avión</strong>
-</h4>
+                                    @if (Route::has('register'))
+                                        <!-- <a href="{{ route('register') }}" class="btn btn-success ms-2">Crear cuenta</a> -->
+                                    @endif
+                                @endauth
+                            @endif
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
 
-
-<style>
-    .center {
-        position: absolute;
-        top: 50%;
-        left: 45%;
-        transform: translate(-50%, -50%);
-    }
-</style>
-
-
-<div class="center" style="margin-top: 70px;">
-
-
-    <link rel="stylesheet" href="{{ asset('css/personalizaAvion.css') }}">
-    <script src="{{ asset('js/personalizaAvion.js') }}"></script>
-
-
-    <div class="form-group row">
-        <div class="col-sm-2">
-            <label for="nombreCompleto" class="col-form-label"><b>Nombre:</b></label>
-        </div>
-        <div class="col-sm-5" style="margin-bottom: 20px;">
-            <input type="text" class="form-control" name="nombreCompleto" id="nombreCompleto"
-                placeholder="Ingrese su nombre">
+        <div class="container-fluid " style="margin-top: 40px;">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item">
+                    <a href="{{ url('/') }}">Inicio</a>
+                </li>
+                <li class="breadcrumb-item active" aria-current="page">
+                    <a href="{{ route('PersonalizaAvion') }}">Personaliza tu avión</a>
+                </li>
+                @yield('breadcrumb')
+            </ol>
         </div>
 
-    </div>
 
-    <!-- SVG para dibujar -->
-    <div id="svg-container">
-    </div>
+        <h4 class="text-center" style="margin-top: 30px; margin-bottom: 50px;">
+            <strong>Personaliza tu avión</strong>
+        </h4>
 
-    <!-- Selector de Colores y Herramientas -->
 
-    <div class="tool-picker">
-        <button class="brush-icon" title="Color">🎨</button>
-        <div class="color-picker">
-            <button style="background-color: red;" data-color="red"></button>
-            <button style="background-color: blue;" data-color="blue"></button>
-            <button style="background-color: green;" data-color="green"></button>
-            <button style="background-color: yellow;" data-color="yellow"></button>
-            <button style="background-color: purple;" data-color="purple"></button>
-            <button style="background-color: black;" data-color="black"></button>
-            <button style="background-color: gray;" data-color="gray"></button>
-            <button style="background-color: pink;" data-color="pink"></button>
-            <button style="background-color: lightblue;" data-color="lightblue"></button>
-            <button style="background-color: #75AADB;" data-color="#75AADB"></button>
-            <button style="background-color: #FFFFFF; border: 1px solid #ccc;" data-color="#FFFFFF"></button>
-            <button style="background-color: #8B4513; color: white;" data-color="#8B4513"></button>
+        <style>
+            .center {
+                position: relative;
+                margin-top: 23%;
+                left: 69%;
+                transform: translate(-50%, -50%);
+            }
+        </style>
+
+    
+        <div class="center" style="">
+
+
+            <link rel="stylesheet" href="{{ asset('css/personalizaAvion.css') }}">
+            <script src="{{ asset('js/personalizaAvion.js') }}"></script>
+
+
+            <div class="form-group row">
+                <div class="col-sm-2">
+                    <label for="nombreCompleto" class="col-form-label"><b>Nombre:</b></label>
+                </div>
+                <div class="col-sm-5" style="margin-bottom: 20px;">
+                    <input type="text" class="form-control" name="nombreCompleto" id="nombreCompleto"
+                        placeholder="Ingrese su nombre">
+                </div>
+
+            </div>
+
+            <!-- SVG para dibujar -->
+            <div id="svg-container">
+            </div>
+
+            <!-- Selector de Colores y Herramientas -->
+
+            <div class="tool-picker">
+                <button class="brush-icon" title="Color">🎨</button>
+                <div class="color-picker">
+                    <button style="background-color: red;" data-color="red"></button>
+                    <button style="background-color: blue;" data-color="blue"></button>
+                    <button style="background-color: green;" data-color="green"></button>
+                    <button style="background-color: yellow;" data-color="yellow"></button>
+                    <button style="background-color: purple;" data-color="purple"></button>
+                    <button style="background-color: black;" data-color="black"></button>
+                    <button style="background-color: gray;" data-color="gray"></button>
+                    <button style="background-color: pink;" data-color="pink"></button>
+                    <button style="background-color: lightblue;" data-color="lightblue"></button>
+                    <button style="background-color: #75AADB;" data-color="#75AADB"></button>
+                    <button style="background-color: #FFFFFF; border: 1px solid #ccc;" data-color="#FFFFFF"></button>
+                    <button style="background-color: #8B4513; color: white;" data-color="#8B4513"></button>
+                </div>
+
+                <div class="size-picker">
+                    <button id="tamanopincel" title="Tamaño de pincel" class="regla-icon">📏</button>
+                    <input id="brush-size" type="range" min="1" max="20" value="5">
+                </div>
+            </div>
+
+
+            <div class="Borrador  form-group row">
+                <input id="eraser-size" type="range" min="5" max="50" value="10">
+            </div>
+
+            <div class="buttonBorrador  form-group row">
+                <button id="eraser" title="Borrador" class="borrador-icon">🧽</button> <!-- Icono de borrador -->
+                <button id="tamanoBorrador" title="Tamaño de borrador" class="reglaBorrador-icon">📏</button>
+            </div>
+
+
+
+            <div class="elegir  form-group row">
+                <div class="col-sm-9">
+                    <input type="hidden" id="airplane-selector">
+                    <!-- Contenedor de miniaturas -->
+                    <div id="thumbnail-container" style="display: flex; gap: 20px;"></div>
+                </div>
+            </div>
+
+
+            <div class="controls3">
+                <button onclick="imprimir()" class="impresora-icon">📷</button>
+            </div>
+
+            <div id="loader"
+                style="display:none; position:fixed; top:50%; left:50%; transform:translate(-50%,-50%); text-align:center; background:#fff; padding:20px; border:1px solid #ccc; z-index:9999;">
+                <p id="progress-text">Generando imagen: 0%</p>
+                <progress id="progress-bar" value="0" max="100" style="width: 100%;"></progress>
+            </div>
+
+
         </div>
 
-        <div class="size-picker">
-            <button id="tamanopincel" title="Tamaño de pincel" class="regla-icon">📏</button>
-            <input id="brush-size" type="range" min="1" max="20" value="5">
-        </div>
     </div>
 
+</body>
 
-    <div class="Borrador  form-group row">
-        <input id="eraser-size" type="range" min="5" max="50" value="10">
-    </div>
-
-    <div class="buttonBorrador  form-group row">
-        <button id="eraser" title="Borrador" class="borrador-icon">🧽</button> <!-- Icono de borrador -->
-        <button id="tamanoBorrador" title="Tamaño de borrador" class="reglaBorrador-icon">📏</button>
-    </div>
-
-
-
-    <div class="elegir  form-group row">
-        <div class="col-sm-9">
-            <input type="hidden" id="airplane-selector">
-            <!-- Contenedor de miniaturas -->
-            <div id="thumbnail-container" style="display: flex; gap: 20px;"></div>
-        </div>
-    </div>
-
-
-    <div class="controls3">
-        <button onclick="imprimir()" class="impresora-icon">📷</button>
-    </div>
-
-    <div id="loader"
-        style="display:none; position:fixed; top:50%; left:50%; transform:translate(-50%,-50%); text-align:center; background:#fff; padding:20px; border:1px solid #ccc; z-index:9999;">
-        <p id="progress-text">Generando imagen: 0%</p>
-        <progress id="progress-bar" value="0" max="100" style="width: 100%;"></progress>
-    </div>
-
-
-</div>
 
 @php
     $url = asset('img/');
@@ -570,27 +605,27 @@
 
 
     /*
-    function imprimir() {
-    const container = document.getElementById("svg-container");
+            function imprimir() {
+            const container = document.getElementById("svg-container");
 
-    const printWindow = window.open("", "", "width=1100,height=600");
+            const printWindow = window.open("", "", "width=1100,height=600");
 
-    const styles = Array.from(document.styleSheets)
-    .map(styleSheet => {
-    try {
-    return Array.from(styleSheet.cssRules)
-    .map(rule => rule.cssText)
-    .join('');
-    } catch (e) {
-    return '';
-    }
-    }).join('');
+            const styles = Array.from(document.styleSheets)
+            .map(styleSheet => {
+            try {
+            return Array.from(styleSheet.cssRules)
+            .map(rule => rule.cssText)
+            .join('');
+            } catch (e) {
+            return '';
+            }
+            }).join('');
 
-    const clonedContent = container.cloneNode(true);
-    clonedContent.style.border = "none"; // Elimina bordes inline
+            const clonedContent = container.cloneNode(true);
+            clonedContent.style.border = "none"; // Elimina bordes inline
 
-    printWindow.document.open();
-    printWindow.document.write(`
+            printWindow.document.open();
+            printWindow.document.write(`
     <!DOCTYPE html>
     <html lang="en">
 
@@ -626,18 +661,18 @@
 
     </html>
     `);
-    printWindow.document.close();
+            printWindow.document.close();
 
-    printWindow.onload = () => {
-    printWindow.document.getElementById("print-content").appendChild(clonedContent);
-    printWindow.focus();
-    printWindow.print();
-    printWindow.close();
-    };
-    }
+            printWindow.onload = () => {
+            printWindow.document.getElementById("print-content").appendChild(clonedContent);
+            printWindow.focus();
+            printWindow.print();
+            printWindow.close();
+            };
+            }
 
 
-    */
+            */
 
 
 
