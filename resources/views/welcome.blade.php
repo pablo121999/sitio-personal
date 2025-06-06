@@ -28,8 +28,8 @@
 </nav>
 
 
-<div class="container-fluid col-md-10" style="margin-top: 40px;">
 
+<div class="container-fluid col-md-10" style="margin-top: 40px;">
 
     <div class="row">
 
@@ -105,7 +105,7 @@
         @include('experiencia.main')
     </div>
 
-     <div style="margin-top: 50px;">
+    <div style="margin-top: 50px;">
         <h4 class="text-center" style="margin-bottom: 30px;"><strong>Juegos</strong></h4>
         @include('juegos.main')
     </div>

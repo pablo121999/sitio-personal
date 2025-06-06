@@ -10,7 +10,7 @@
                             <a href="{{ route('GestionUsuarios') }}"
                                 class="d-flex align-items-center text-decoration-none" data-toggle="popover"
                                 data-trigger="hover" data-content="Gestión de usuarios">
-                                <img src="{{ asset('storage/GestionUsuario.png') }}" height="50" width="50"
+                                <img src="{{ asset('img/GestionUsuario.png') }}" height="50" width="50"
                                     alt="Gestión de usuarios" class="me-3 rounded" />
                                 <span class="text-dark fs-5">Gestión de usuarios</span>
                             </a>
@@ -19,7 +19,7 @@
                         <div class="col-sm-6">
                             <a href="{{ route('LineaTiempo') }}" class="d-flex align-items-center text-decoration-none"
                                 data-toggle="popover" data-trigger="hover" data-content="Gestión de línea de tiempo">
-                                <img src="{{ asset('storage/cronologia.png') }}" height="50" width="50"
+                                <img src="{{ asset('img/cronologia.png') }}" height="50" width="50"
                                     alt="Gestión de línea de tiempo" class="me-3 rounded" />
                                 <span class="text-dark fs-5">Gestión de línea de tiempo</span>
                             </a>

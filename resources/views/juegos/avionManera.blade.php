@@ -26,6 +26,19 @@
     </div>
 </nav>
 
+<div class="container-fluid col-md-10" style="margin-top: 40px;">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item">
+            <a href="{{ url('/') }}">Inicio</a>
+        </li>
+        <li class="breadcrumb-item active" aria-current="page">
+            <a href="{{ route('PersonalizaAvion') }}">Personaliza tu avión</a>
+        </li>
+        @yield('breadcrumb')
+    </ol>
+</div>
+
+
 <h4 class="text-center" style="margin-top: 30px; margin-bottom: 50px;">
     <strong>Personaliza tu avión</strong>
 </h4>
@@ -35,13 +48,13 @@
     .center {
         position: absolute;
         top: 50%;
-        left: 35%;
+        left: 45%;
         transform: translate(-50%, -50%);
     }
 </style>
 
 
-<div class="center">
+<div class="center" style="margin-top: 70px;">
 
 
     <link rel="stylesheet" href="{{ asset('css/personalizaAvion.css') }}">
@@ -123,7 +136,7 @@
 </div>
 
 @php
-    $url = asset('storage/');
+    $url = asset('img/');
     $baseUrl = $url;
 @endphp
 <!-- Incluye esto antes de tu JS personalizado -->

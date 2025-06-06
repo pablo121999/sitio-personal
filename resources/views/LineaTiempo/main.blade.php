@@ -44,8 +44,7 @@
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-900">
 
-                    <table id="date_table"
-                        class="tablaGen table table-striped table-condensed table-hover tablaGenPagine dataTable no-footer">
+                    <table id="date_table" class="display">
                         <thead>
                             <tr>
                                 <th>No</th>
