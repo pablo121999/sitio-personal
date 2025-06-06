@@ -1,49 +1,82 @@
 @include('layouts.header')
 
+<link rel="stylesheet" href="{{ asset('css/welcome.css') }}">
 
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <div class="container-fluid col-md-10">
-        <a class="navbar-brand fw-bold text-primary" href="#">¡Hola! Bienvenidos</a>
+<body>
+    <div class="profile-card shadow-lg bg-white p-4">
+        <!-- NAVBAR dentro de la card -->
+        <nav class="navbar navbar-expand-lg  mb-4">
 
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll"
-            aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarScroll">
-            <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
-            </ul>
-            @if (Route::has('login'))
-                @auth
-                    <a href="{{ url('/dashboard') }}" class="btn btn-primary ms-2">Dashboard</a>
-                @else
-                    <a href="{{ route('login') }}" class="btn btn-primary ms-2">Inicia sesión</a>
+            <div class="container-fluid">
+                <!-- Logo y nombre -->
+                <a class="navbar-brand d-flex align-items-center" href="#">
+                    <div class="bg-primary text-white rounded-circle d-flex align-items-center justify-content-center"
+                        style="width: 40px; height: 40px">
+                        <strong>P</strong>
+                    </div>
+                    <span class="ms-2 fw-bold text-dark">Pablo Andres</span>
+                </a>
 
-                    @if (Route::has('register'))
-                        <!--     <a href="{{ route('register') }}" class="btn btn-success ms-2">Crear cuenta</a> -->
-                    @endif
-                @endauth
-            @endif
-        </div>
-    </div>
-</nav>
+                <!-- Botón toggle para pantallas pequeñas -->
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar"
+                    aria-controls="mainNavbar" aria-expanded="false" aria-label="Toggle navigation">
+                    <i class="fa fa-list text-primary fs-2"></i>
+                </button>
+
+                <!-- Contenido colapsable -->
+                <div class="collapse navbar-collapse justify-content-end" id="mainNavbar">
+                    <ul class="navbar-nav mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link text-secondary fw-semibold" href="#">About Me</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-secondary fw-semibold" href="#">Resume</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-secondary fw-semibold" href="#">Portfolio</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-secondary fw-semibold" href="#">Contact</a>
+                        </li>
+                        <li class="nav-item">
+                            @if (Route::has('login'))
+                                @auth
+                                    <a href="{{ url('/dashboard') }}" class="btn btn-primary ms-2">Dashboard</a>
+                                @else
+                                    <a href="{{ route('login') }}" class="btn btn-primary ms-2">Inicia sesión</a>
+
+                                    @if (Route::has('register'))
+                                        <!-- <a href="{{ route('register') }}" class="btn btn-success ms-2">Crear cuenta</a> -->
+                                    @endif
+                                @endauth
+                            @endif
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
 
 
+        <!-- Contenido del perfil -->
+        <div class="d-flex flex-wrap align-items-center justify-content-center text-center text-md-start"
+            style="margin-top: 70px;">
+            <div class="me-md-5 mb-4 mb-md-0">
+                <img src="{{ asset('img/FotoPerfil.jpg') }}" alt="Alex Smith" class="profile-img rounded-circle shadow"
+                    style="width: 336px; height: 336px; object-fit: cover; border: 10px solid white;" />
+            </div>
+            <div style="max-width: 500px">
+                <h2 class="fw-bold mb-2">Pablo Andres Aroca Garcia</h2>
+                <p class="text-muted mb-1"><strong>Ingeniero de sistemas</strong></p>
+                <p class="text-muted">
+                    Soy Ingeniero de Sistemas especializado en desarrollo web. Me apasiona la programación y
+                    disfruto crear soluciones eficientes y funcionales. Cuento con experiencia en tecnologías como
+                    PHP, JavaScript, MySQL, CSS, HTML
+                    Siempre estoy en constante aprendizaje para mantenerme actualizado y aportar valor en cada
+                    proyecto.
+                </p>
+                <div class="d-flex flex-wrap gap-2 justify-content-center justify-content-md-start mt-4">
+                    <a href="#" class="btn btn-outline-primary">Download CV</a>
 
-<div class="container-fluid col-md-10" style="margin-top: 40px;">
-
-    <div class="row">
-
-        <div class="col-md-9">
-            <div class="card" style="border-radius: 20px; background-color: #f2f2f2;">
-                <div class="card-body">
-                    <h5 class="card-title"><strong>¡Hola! Soy Pablo Andrés Aroca García</strong></h5>
-                    <h6 class="card-subtitle mb-2 text-muted">Ingeniero de Sistemas</h6>
-                    <p class="card-text">
-                        Soy Ingeniero de Sistemas especializado en desarrollo web. Me apasiona la programación y
-                        disfruto crear soluciones eficientes y funcionales. Cuento con experiencia en tecnologías como
-                        PHP, JavaScript, MySQL, CSS, HTML
-                        Siempre estoy en constante aprendizaje para mantenerme actualizado y aportar valor en cada
-                        proyecto.
                     <div class="mt-3">
                         <a href="mailto:pabloaroca78@gmail.com" class="me-3 text-danger text-decoration-none"
                             title="Enviar correo a Pablo Andrés" aria-label="Correo">
@@ -64,54 +97,56 @@
                         </a>
                     </div>
 
-                    </p>
                 </div>
             </div>
         </div>
 
 
-        <div class="col-md-3">
-            <div class="card" style="border-radius: 20px; background-color: #f2f2f2;">
-                <div class="card-body">
-                    <h5 class="card-title  text-center"><strong>Skills</strong></h5>
-                    <ul>
-                        <li>PHP <i class="fa-brands fa-php "></i> (<i class="fab fa-laravel"></i>)</li>
-                        <li>JavaScript <i class="fa-brands fa-js "></i></li>
-                        <li>CSS <i class="fab fa-css3 "></i></li>
-                        <li>HTML <i class="fab fa-html5 "></i></li>
-                        <li>MySQL <i class="fa-solid fa-database "></i></li>
-                    </ul>
-                </div>
-            </div>
+        <div style="margin-top: 100px;">
+            <h2 class="text-center" style="margin-bottom: 30px;"><strong>Mi línea de tiempo</strong></h2>
+            @include('LineaTiempo.Timeline')
         </div>
 
+
+        <div class="row" style="margin-top: 40px;">
+
+            <div class="col-md-9">
+                <h5 class="text-center" style="margin-bottom: 30px;"><strong>Estudios</strong></h5>
+                @include('estudios.main')
+            </div>
+
+            <div class="col-md-3">
+                <h5 class="text-center" style="margin-bottom: 30px;"><strong>Skills</strong></h5>
+                <div class="card" style="border-radius: 20px; background-color: #f2f2f2;">
+                    <div class="card-body">
+                        <ul>
+                            <li>PHP <i class="fa-brands fa-php "></i> (<i class="fab fa-laravel"></i>)</li>
+                            <li>JavaScript <i class="fa-brands fa-js "></i></li>
+                            <li>CSS <i class="fab fa-css3 "></i></li>
+                            <li>HTML <i class="fab fa-html5 "></i></li>
+                            <li>MySQL <i class="fa-solid fa-database "></i></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+
+        <div style="margin-top: 50px;">
+            <h5 class="text-center" style="margin-bottom: 30px;"><strong>Experiencia</strong></h5>
+            @include('experiencia.main')
+        </div>
+
+        <div style="margin-top: 50px;">
+            <h5 class="text-center" style="margin-bottom: 30px;"><strong>Juegos</strong></h5>
+            @include('juegos.main')
+        </div>
+
+
     </div>
 
-
-    <div style="margin-top: 50px;">
-        <h4 class="text-center" style="margin-bottom: 30px;"><strong>Mi línea de tiempo</strong></h4>
-        @include('LineaTiempo.Timeline')
-    </div>
-
-
-    <div style="margin-top: 50px;">
-        <h4 class="text-center" style="margin-bottom: 30px;"><strong>Estudios</strong></h4>
-        @include('estudios.main')
-    </div>
-
-
-    <div style="margin-top: 50px;">
-        <h4 class="text-center" style="margin-bottom: 30px;"><strong>Experiencia</strong></h4>
-        @include('experiencia.main')
-    </div>
-
-    <div style="margin-top: 50px;">
-        <h4 class="text-center" style="margin-bottom: 30px;"><strong>Juegos</strong></h4>
-        @include('juegos.main')
-    </div>
-
-
-</div>
+</body>
 
 @if (Route::has('login'))
     <div class="h-14.5 hidden lg:block"></div>

@@ -2,7 +2,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.4.2/js/swiper.min.js"></script>
 
 
-<div class="tcontainer" style="border-radius: 20px;">
+<div class="tcontainer" style="border-radius: 20px; border: 1px solid #ccc; background-color: #f2f2f2;">
     <div class="timeline">
         <div class="swiper-container">
             <div class="swiper-wrapper">
