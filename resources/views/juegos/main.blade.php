@@ -16,7 +16,7 @@
     <div class="col-md-6">
         <div class="card" style="border-radius: 20px; background-color: #f2f2f2;">
             <div class="card-body">
-                <a href="{{ route('GestionUsuarios') }}" class="d-flex align-items-center text-decoration-none"
+                <a href="{{ route('simuladorAvion') }}" class="d-flex align-items-center text-decoration-none"
                     data-toggle="popover" data-trigger="hover" data-content="Simulador de avión">
                     <img src="{{ asset('img/SimuladorAvion.png') }}" height="50" width="50"
                         alt="Simulador de avión" class="me-3 rounded" />

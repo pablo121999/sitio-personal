@@ -1,0 +1,76 @@
+#contenerplane {
+    position: relative;
+    border: 1px solid #ccc;
+    height: 300px;
+    width: 1100px;
+    background: #00aae4;
+}
+
+#plane {
+    position: absolute;
+    /* Cambia a absolute para controlar mejor las coordenadas */
+   /* left: 10%; */
+    /* Centra horizontalmente */
+    bottom: 50%;
+    /* Centra verticalmente */
+    transform: translateY(50%);
+    /* Ajusta el punto de referencia */
+    transition: all 0.2s ease-in-out;
+    display: block;
+}
+
+#nube1 {
+    position: relative;
+    left: 5%;
+    top: 10%;
+}
+
+#nube2 {
+    position: relative;
+    left: 10%;
+    top: 65%;
+}
+
+#nube3 {
+    position: relative;
+    left: 15%;
+    top: 15%;
+}
+
+#nube4 {
+    position: relative;
+    left: 20%;
+    top: 65%;
+}
+
+#nube5 {
+    position: relative;
+    left: 25%;
+    top: 20%;
+}
+
+#hud,
+#instructions {
+    background-color: #000;
+    color: white;
+    font-family: Arial, sans-serif;
+    border-radius: 15px;
+    /* Bordes redondeados */
+    padding: 20px;
+    /* Espaciado interno */
+    width: fit-content;
+    /* Ajusta el ancho al contenido */
+    margin: 10px 0;
+    /* Centrado automático */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    /* Sombra para darle un efecto flotante */
+}
+
+#audioPlayer {
+    float: right;
+    /* Alinea el elemento a la derecha */
+    margin: 10px;
+    /* Agrega un margen alrededor para espaciado */
+    display: block;
+    /* Asegura que se comporte como un elemento de bloque */
+}

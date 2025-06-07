@@ -39,4 +39,8 @@ Route::get('/PersonalizaAvion', function () {
     return view('juegos.avionManera');
 })->name('PersonalizaAvion');
 
+Route::get('/simuladorAvion', function () {
+    return view('juegos.simuladorAvion');
+})->name('simuladorAvion');
+
 require __DIR__ . '/auth.php';

@@ -68,14 +68,17 @@
                 <h2 class="fw-bold mb-2">Pablo Andres Aroca Garcia</h2>
                 <p class="text-muted mb-1"><strong>Ingeniero de sistemas</strong></p>
                 <p class="text-muted">
-                    Soy Ingeniero de Sistemas especializado en desarrollo web. Me apasiona la programación y
-                    disfruto crear soluciones eficientes y funcionales. Cuento con experiencia en tecnologías como
-                    PHP, JavaScript, MySQL, CSS, HTML
-                    Siempre estoy en constante aprendizaje para mantenerme actualizado y aportar valor en cada
-                    proyecto.
+                    Cuento con sólidos conocimientos y experiencia en desarrollo de software, así como habilidades para
+                    diseñar, analizar, integrar y gestionar sistemas de información alineados con las necesidades de las
+                    organizaciones.
+                    Actualmente, centro mi carrera en el desarrollo web, especializándome en tecnologías como PHP
+                    (Laravel), JavaScript, HTML, CSS y MySQL. Me apasiona crear soluciones funcionales, escalables y
+                    eficientes. Estoy en constante aprendizaje, con el objetivo de fortalecer mis competencias y aportar
+                    valor en cada proyecto en el que participo.
                 </p>
                 <div class="d-flex flex-wrap gap-2 justify-content-center justify-content-md-start mt-4">
-                    <a href="#" class="btn btn-outline-primary">Download CV</a>
+                    <a href="{{ asset('pdf/hoja de vida 2025.pdf') }}" download class="btn btn-outline-primary">Download
+                        CV</a>
 
                     <div class="mt-3">
                         <a href="mailto:pabloaroca78@gmail.com" class="me-3 text-danger text-decoration-none"
