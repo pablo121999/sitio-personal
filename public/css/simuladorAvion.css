@@ -2,14 +2,14 @@
     position: relative;
     border: 1px solid #ccc;
     height: 300px;
-    width: 1100px;
+    width: 100%;
     background: #00aae4;
 }
 
 #plane {
     position: absolute;
     /* Cambia a absolute para controlar mejor las coordenadas */
-   /* left: 10%; */
+    /* left: 10%; */
     /* Centra horizontalmente */
     bottom: 50%;
     /* Centra verticalmente */
@@ -17,36 +17,6 @@
     /* Ajusta el punto de referencia */
     transition: all 0.2s ease-in-out;
     display: block;
-}
-
-#nube1 {
-    position: relative;
-    left: 5%;
-    top: 10%;
-}
-
-#nube2 {
-    position: relative;
-    left: 10%;
-    top: 65%;
-}
-
-#nube3 {
-    position: relative;
-    left: 15%;
-    top: 15%;
-}
-
-#nube4 {
-    position: relative;
-    left: 20%;
-    top: 65%;
-}
-
-#nube5 {
-    position: relative;
-    left: 25%;
-    top: 20%;
 }
 
 #hud,
@@ -73,4 +43,110 @@
     /* Agrega un margen alrededor para espaciado */
     display: block;
     /* Asegura que se comporte como un elemento de bloque */
+}
+
+#contenerplane {
+    position: relative;
+    border: 1px solid #ccc;
+    height: 300px;
+    width: 100%;
+    overflow: hidden;
+} 
+
+#plane {
+    position: absolute;
+    bottom: 50%;
+    transform: translateY(50%);
+    transition: all 0.2s ease-in-out;
+}
+
+.obstacle {
+    position: absolute;
+    width: 70px;
+    height: 70px;
+    background-color: transparent;
+}
+
+#hud,
+#instructions {
+    background-color: #000;
+    color: white;
+    font-family: Arial, sans-serif;
+    border-radius: 15px;
+    padding: 20px;
+    width: fit-content;
+    margin: 10px 0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+}
+
+#audioPlayer {
+    float: right;
+    margin: 10px;
+    display: block;
+}
+
+#scoreDisplay {
+    margin-top: 10px;
+    font-size: 18px;
+    font-weight: bold;
+    color: #0f0;
+}
+
+/* Núcleos comunes */
+#nube1,
+#nube2,
+#nube3,
+#nube4,
+#nube5 {
+    position: absolute;
+    top: var(--nube-top);
+    animation-name: moverNube;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+    animation-fill-mode: backwards;
+    /* ← aplica el keyframe 0% durante el delay */
+}
+
+@keyframes moverNube {
+    0% {
+        left: 100%;
+        opacity: 1;
+    }
+
+    /* empiezan en el borde derecho, fuera de vista */
+    100% {
+        left: -200px;
+        opacity: 1;
+    }
+}
+
+/* Duraciones y delays individuales */
+#nube1 {
+    --nube-top: 10%;
+    animation-duration: 25s;
+    animation-delay: 0s;
+}
+
+#nube2 {
+    --nube-top: 20%;
+    animation-duration: 35s;
+    animation-delay: 8s;
+}
+
+#nube3 {
+    --nube-top: 35%;
+    animation-duration: 30s;
+    animation-delay: 4s;
+}
+
+#nube4 {
+    --nube-top: 45%;
+    animation-duration: 28s;
+    animation-delay: 12s;
+}
+
+#nube5 {
+    --nube-top: 60%;
+    animation-duration: 32s;
+    animation-delay: 6s;
 }

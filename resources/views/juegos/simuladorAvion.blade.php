@@ -95,7 +95,15 @@
 
                     <img id="plane" src="{{ asset('img/avionsimulador.png') }}" style="center;" height="70px"
                         width="150px" />
+
+                    <div class="obstacle" style="bottom: 50%; left: 100%;"></div>
+
+                    <!--   <img id="bloque" src="{{ asset('img/bloque.png') }}" style="center;" height="70px"
+                        width="150px" /> -->
                 </div>
+
+                <button id="pauseBtn">⏸️ Pausar</button>
+
 
                 <audio id="audioPlayer" controls autoplay loop>
                     <source src="{{ asset('audio/avion.mp3') }}" type="audio/mpeg">
@@ -118,6 +126,13 @@
     </div>
 </body>
 
+@php
+    $imagen = asset('img/bloque.png');
+@endphp
+
+<script>
+    const imagen = @json($imagen);
+</script>
 
 <script src="{{ asset('js/simuladorAvion.js') }}"></script>
 @include('layouts.footer')
