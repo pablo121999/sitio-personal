@@ -61,7 +61,7 @@
         <div class="d-flex flex-wrap align-items-center justify-content-center text-center text-md-start"
             style="margin-top: 70px;">
             <div class="me-md-5 mb-4 mb-md-0">
-                <img src="{{ asset('img/FotoPerfil.jpg') }}" alt="Alex Smith" class="profile-img rounded-circle shadow"
+                <img src="{{ asset('img/FotoPerfil.jpg') }}" alt="Pablo" class="profile-img rounded-circle shadow"
                     style="width: 336px; height: 336px; object-fit: cover; border: 10px solid white;" />
             </div>
             <div style="max-width: 500px">
