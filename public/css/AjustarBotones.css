@@ -1,0 +1,6 @@
+div.dt-buttons {
+    margin-top: 15px;
+    display: flex;
+    justify-content: flex-start;
+    gap: 10px;
+}

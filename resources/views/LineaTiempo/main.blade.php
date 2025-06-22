@@ -1,6 +1,7 @@
 @include('layouts.header')
 <!-- DataTables CSS -->
 <script src="{{ asset('js/sweetalert.js') }} "></script>
+<link rel="stylesheet" href="{{ asset('css/AjustarBotones.css') }}">
 
 <x-app-layout>
 
@@ -62,11 +63,41 @@
 
                     <script type="text/javascript">
                         $(document).ready(function() {
-                            // Inicializar DataTable en español
+                            // Inicializar DataTable con botones
                             const table = $('#date_table').DataTable({
                                 language: {
                                     url: '//cdn.datatables.net/plug-ins/1.13.6/i18n/es-ES.json'
-                                }
+                                },
+                                dom: '<"top"f>rt<"bottom"Bip>',
+                                buttons: [{
+                                        extend: 'copy',
+                                        text: 'Copiar'
+                                    },
+                                    {
+                                        extend: 'csv',
+                                        text: 'Exportar CSV'
+                                    },
+                                    {
+                                        extend: 'excel',
+                                        text: 'Exportar Excel'
+                                    },
+                                    {
+                                        extend: 'pdf',
+                                        text: 'Exportar PDF'
+                                    },
+                                    {
+                                        extend: 'print',
+                                        text: 'Imprimir'
+                                    }
+                                ]
+                            });
+
+                            // Ocultar los botones al cargar (para que solo se activen con el botón personalizado)
+                            table.buttons().container().hide();
+
+                            // Botón personalizado que muestra los botones de exportar
+                            $('#export_button').on('click', function() {
+                                table.buttons().container().toggle(); // Mostrar/ocultar los botones
                             });
 
                             // Cargar los datos por AJAX

@@ -30,6 +30,42 @@ class ProfileController extends Controller
         return response()->json(User::select('id', 'name', 'email')->get());
     }
 
+
+    public function CrearUsuarioVista(): View
+    {
+        return view('usuario.crear');
+    }
+
+    public function Crear(Request $request)
+    {
+        $request->validate(
+            [
+                'name' => 'required|string|max:255',
+                'email' => 'required|email|unique:users,email',
+                'password' => 'required|string|min:8',
+            ],
+            [
+                'name.required' => 'El campo nombre es obligatorio.',
+                'email.required' => 'El campo correo electrónico es obligatorio.',
+                'email.email' => 'El correo electrónico no es válido.',
+                'email.unique' => 'Este correo ya está registrado.',
+                'password.required' => 'El campo contraseña es obligatorio.',
+                'password.min' => 'La contraseña debe tener al menos 8 caracteres.',
+            ]
+        );
+
+        $user = new User();
+        $user->name = $request->name;
+        $user->email = $request->email;
+        $user->password = Hash::make($request->password);
+        $user->save();
+
+        return redirect()->route('GestionUsuarios')->with('success', 'Usuario creado correctamente.');
+    }
+
+
+
+
     public function EditarUsuarios($id): View
     {
         return view('usuario.editar', [
@@ -42,13 +78,6 @@ class ProfileController extends Controller
     {
         // Buscar el usuario
         $user = User::findOrFail($id);
-
-        // Verificar que la contraseña actual sea correcta
-        if (!Hash::check($request->passwordActual, $user->password)) {
-            return redirect()->route('EditarUsuarios', ['id' => $user->id])
-                ->withErrors(['passwordActual' => 'La contraseña actual es incorrecta.'])
-                ->withInput();
-        }
 
         // Actualizar los datos
         $user->name = $request->name;

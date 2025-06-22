@@ -1,10 +1,16 @@
 @include('layouts.header')
 <!-- DataTables CSS -->
+<link rel="stylesheet" href="{{ asset('css/AjustarBotones.css') }}">
 
 <x-app-layout>
 
     <div class="container col-sm-10" style="margin-top: 20px;">
+
         <h1 class="display-6"><b>Gestión de usuarios</b></h1>
+
+        <a class="btn btn-primary" href="{{ route('CrearUsuarioVista') }}"
+            style="text-decoration: none; margin-left: 1160px;">
+            Crear </a>
 
         @if (session('success'))
             <div class="alert alert-success   alert-dismissible fade show" role="alert">
@@ -31,12 +37,12 @@
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-900">
 
-                    <table id="date_table" class="display">
+                    <table id="date_table" class="display" style="width:100%">
                         <thead>
                             <tr>
                                 <th>No</th>
                                 <th>Nombre</th>
-                                <th>correo</th>
+                                <th>Correo</th>
                                 <th>Editar</th>
                             </tr>
                         </thead>
@@ -47,11 +53,41 @@
 
                     <script type="text/javascript">
                         $(document).ready(function() {
-                            // Inicializar DataTable en español
+                            // Inicializar DataTable con botones
                             const table = $('#date_table').DataTable({
                                 language: {
                                     url: '//cdn.datatables.net/plug-ins/1.13.6/i18n/es-ES.json'
-                                }
+                                },
+                                dom: '<"top"f>rt<"bottom"Bip>',
+                                buttons: [{
+                                        extend: 'copy',
+                                        text: 'Copiar'
+                                    },
+                                    {
+                                        extend: 'csv',
+                                        text: 'Exportar CSV'
+                                    },
+                                    {
+                                        extend: 'excel',
+                                        text: 'Exportar Excel'
+                                    },
+                                    {
+                                        extend: 'pdf',
+                                        text: 'Exportar PDF'
+                                    },
+                                    {
+                                        extend: 'print',
+                                        text: 'Imprimir'
+                                    }
+                                ]
+                            });
+
+                            // Ocultar los botones al cargar (para que solo se activen con el botón personalizado)
+                            table.buttons().container().hide();
+
+                            // Botón personalizado que muestra los botones de exportar
+                            $('#export_button').on('click', function() {
+                                table.buttons().container().toggle(); // Mostrar/ocultar los botones
                             });
 
                             // Cargar los datos por AJAX
@@ -69,15 +105,15 @@
                                                 dato.name,
                                                 dato.email,
                                                 `<div style="display: flex; align-items: center; gap: 10px;">
-        <a href="/EditarUsuarios/${dato.id}">
-            <i class="fa fa-pencil"></i>
-        </a>
-    </div>`
+                                <a href="/EditarUsuarios/${dato.id}">
+                                    <i class="fa fa-pencil"></i>
+                                </a>
+                            </div>`
                                             ]);
                                         });
                                         table.draw(); // Redibujar
                                     } else {
-                                        $('#date_table tbody').append('<tr><td colspan="3">No hay datos</td></tr>');
+                                        $('#date_table tbody').append('<tr><td colspan="4">No hay datos</td></tr>');
                                     }
                                 },
                                 error: function(error) {
@@ -88,11 +124,11 @@
                         });
                     </script>
 
-
                 </div>
             </div>
         </div>
     </div>
 
 </x-app-layout>
+
 @include('layouts.footer')

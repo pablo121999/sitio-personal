@@ -23,7 +23,8 @@ Route::middleware('auth')->group(function () {
     Route::get('/lista-usuarios', [ProfileController::class, 'ListaUsuarios'])->name('ListaUsuarios')->middleware('auth');
     Route::get('/EditarUsuarios/{id}', [ProfileController::class, 'EditarUsuarios'])->name('EditarUsuarios')->middleware('auth');
     Route::POST('/actualizar/{id}', [ProfileController::class, 'actualizar'])->name('actualizar')->middleware('auth');
-
+    Route::get('/CrearUsuarioVista', [ProfileController::class, 'CrearUsuarioVista'])->name('CrearUsuarioVista')->middleware('auth');
+    Route::POST('/CrearUsuario', [ProfileController::class, 'Crear'])->name('CrearUsuario')->middleware('auth');
     Route::get('/LineaTiempo', [LineaTiempoController::class, 'index'])->name('LineaTiempo')->middleware('auth');
     Route::get('/lista-LineaTiempo', [LineaTiempoController::class, 'ListaLineaTiempo'])->name('lista-LineaTiempo')->middleware('auth');
     Route::get('/CrearLineaTiempo', [LineaTiempoController::class, 'crear'])->name('CrearLineaTiempo')->middleware('auth');
