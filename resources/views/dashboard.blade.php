@@ -24,6 +24,18 @@
                                 <span class="text-dark fs-5">Gestión de línea de tiempo</span>
                             </a>
                         </div>
+
+                        <div class="col-sm-6" style="margin-top: 20px;">
+                            <a href="{{ route('GestionDocumentos') }}"
+                                class="d-flex align-items-center text-decoration-none" data-toggle="popover"
+                                data-trigger="hover" data-content="Gestión de línea de tiempo">
+                                <img src="{{ asset('img/cronologia.png') }}" height="50" width="50"
+                                    alt="Gestión de línea de tiempo" class="me-3 rounded" />
+                                <span class="text-dark fs-5">Gestión de documentos</span>
+                            </a>
+                        </div>
+
+
                     </div>
                 </div>
             </div>
@@ -32,7 +44,7 @@
 
 
     @php
-    /*    Auth::user()?->id ?? 'no hay id';
+        /*    Auth::user()?->id ?? 'no hay id';
         Auth::user()?->name ?? 'Invitado';
         Auth::user()?->email ?? 'Invitado'; */
     @endphp

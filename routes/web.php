@@ -4,6 +4,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\LineaTiempoController;
 use Illuminate\Support\Facades\Route;
 use App\Models\LineaTiempo;
+use App\Http\Controllers\DocumentoController;
 
 Route::get('/', function () {
     return view('welcome', [
@@ -32,6 +33,15 @@ Route::middleware('auth')->group(function () {
     Route::get('/EditarLineaTiempo/{id}', [LineaTiempoController::class, 'update'])->name('EditarLineaTiempo')->middleware('auth');
     Route::POST('/actualizarLineaTiempo/{id}', [LineaTiempoController::class, 'actualizar'])->name('actualizarLineaTiempo')->middleware('auth');
     Route::get('/EliminarLineaTiempo/{id}', [LineaTiempoController::class, 'destroy'])->name('EliminarLineaTiempo')->middleware('auth');
+
+    Route::get('/GestionDocumentos', [DocumentoController::class, 'index'])->name('GestionDocumentos')->middleware('auth');
+    Route::get('/ListaDocumentos', [DocumentoController::class, 'ListaDocumentos'])->name('ListaDocumentos')->middleware('auth');
+
+    Route::match(['get', 'post'], '/CrearDocumento', [DocumentoController::class, 'crear'])
+        ->name('CrearDocumento')
+        ->middleware('auth');
+
+    Route::POST('/storeDocumentos', [DocumentoController::class, 'store'])->name('storeDocumentos')->middleware('auth');
 
 });
 
